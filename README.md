@@ -2,7 +2,7 @@
 
 ## Como começar?
 
-Para usar a classe basta fazer o download do arquivo NumeroExtenso.php e adicionar em seu local de desenvolvimento.
+Para utilizar a classe basta fazer o download do arquivo NumeroExtenso.php e adicionar em seu local de desenvolvimento.
 
 **Exemplo:**
 
