@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Número por Extenso</title>
-</head>
-<body>
 <?php
-    include_once 'NumeroExtenso.php';
+header("Content-type: text/html; charset=utf-8");
+require_once 'NumeroExtenso.php';
 
-    if(isset($_GET['num'])){
-        $tmp = NumeroExtenso::show($_GET['num']);
+$result = array("result"=>FALSE);
+
+if(isset($_GET['num'])){
+	$Util = new NumeroExtenso($_GET['num']);
+
+    $numero_extenso = $Util->show();
+
+    if($numero_extenso){
+        $result['result'] = TRUE;
+        $result['extenso'] = $numero_extenso;
     }else{
-        $tmp = "Informe o numero pela variavel ?num=";
+        $result['erro'] = $Util->get_erro();
     }
+}else{
+    $result['erro'] = "Informe o numero pela variavel ?num=";
+}
 
-    echo json_encode(array("extenso"=>$tmp));exit;
-?>
-</body>
-</html>
+echo json_encode($result);
